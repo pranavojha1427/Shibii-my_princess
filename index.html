@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Princess ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #ffe0ec, #eadcff, #fff0f5);
+    text-align: center;
+    padding: 20px;
+}
+
+.card {
+    width: 100%;
+    max-width: 500px;
+    padding: 45px 25px;
+    border-radius: 28px;
+    background: rgba(255,255,255,0.65);
+    box-shadow: 0 15px 45px rgba(160, 80, 130, 0.18);
+    border: 1px solid rgba(255,255,255,0.8);
+    position: relative;
+    z-index: 2;
+}
+
+.crown {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+h1 {
+    color: #bd4b83;
+    font-size: clamp(28px, 7vw, 42px);
+    margin-bottom: 18px;
+}
+
+p {
+    color: #80516f;
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+button {
+    border: none;
+    padding: 16px 30px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #f17bad, #b77be5);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 8px 22px rgba(190, 100, 170, 0.3);
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.06);
+}
+
+.note {
+    margin-top: 22px;
+    font-size: 13px;
+    color: #a47b98;
+}
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 20px;
+    opacity: 0.65;
+    animation: floatUp 8s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    15% { opacity: 0.7; }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <div class="crown">👑</div>
+
+    <h1>Happpppyyyyy Princessss Dayyyyyy, Meriiii buchkuuu merii babyyyy!</h1>
+
+    <p>
+        Hey, my princess! 💗<br>
+        Ek chhotaa saa suprisee merii buchkuu ke liye<br>
+        Readyy ho naa jiii??
+    </p>
+
+    <button onclick="openSurprise()">
+        OPEN YOUR SURPRISE 💖
+    </button>
+
+    <div class="note">
+        Made with bahutt saaraa pyaarrrr, just for youuu ❤️
+    </div>
+</div>
+
+<audio id="music" loop preload="auto">
+    <source src="our_song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const CANVA_URL =
+"https://squirrel-mx870n.my.canva.site/shibiiii-myy-princess";
+
+function openSurprise() {
+
+    // Open Canva directly from the button click
+    window.open(CANVA_URL, "_blank");
+
+    // Start Alfaaz
+    const music = document.getElementById("music");
+
+    music.play().catch(error => {
+        alert("Please tap the button again or check your browser's audio settings.");
+    });
+}
+
+// Floating hearts
+const hearts = ["💗", "💕", "💖", "🌸", "❤️"];
+
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = hearts[
+        Math.floor(Math.random() * hearts.length)
+    ];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 10000);
+}, 650);
+</script>
+
+</body>
+</html>
